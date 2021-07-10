@@ -23,8 +23,8 @@ def get_json():
 
 def parse_json(response):
     if response is None:
-      return "There seems to be an empty response"
-    
+        return "There seems to be an empty response"
+
     bitcoins = response['data']
     bitcoin_dict = {}
     index = 1
@@ -39,16 +39,18 @@ def parse_json(response):
         index = index + 1
     return bitcoin_dict
 
-  
+
 def build_dataframe(bit_dict):
     # Converting the dictionary into a dataframe
-    bit_dict = pd.DataFrame.from_dict(bit_dict, orient='index',
-                                   columns=['name', 'symbol',
-                                            'price', 'last_updated'])
+    bit_dict = pd.DataFrame.from_dict(
+      bit_dict, orient='index',
+      columns=['name', 'symbol', 'price', 'last_updated']
+    )
     return bit_dict
 
-    
+
 def build_db_from_dataframe(dframe):
     # Create engine
     engine = create_engine('mysql://root:codio@localhost/bitcoin_db')
-    dframe.to_sql('bitcoin_table', con=engine, if_exists='replace', index=False)
+    dframe.to_sql('bitcoin_table', con=engine,
+                  if_exists='replace', index=False)
