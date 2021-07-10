@@ -1,21 +1,10 @@
-import pandas as pd
-from utils import get_json
-from utils import parse_json
-from sqlalchemy import create_engine
+from utils import*
 
-# Getting and parsing JSON
 response = get_json()
-bitcoin_dict = parse_json(response)
+bitcoin_dict = parse_json(None)
 
+if bitcoin_dict is not None:
+    dataframe = build_dataframe(bitcoin_dict)
 
-# Converting the dictionary into a dataframe
-dataframe = pd.DataFrame.from_dict(bitcoin_dict, orient='index',
-                                   columns=['name', 'symbol',
-                                            'price', 'last_updated'])
-
-print(dataframe)
-
-# Create engine
-engine =
-create_engine('mysql://root:codio@localhost/bitcoin_db')
-dataframe.to_sql('bitcoin_table', con=engine, if_exists='replace', index=False)
+if  dataframe is not None:   
+    build_db_from_dataframe(dataframe)
