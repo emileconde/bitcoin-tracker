@@ -30,4 +30,5 @@ Emile Conde | condemile11@gmail.com
 
 ### License
 Get the license [here](license.txt)
+
 ![badge0](https://img.shields.io/static/v1?label=License&message=GNU%20GPL&color=<COLOR>)
