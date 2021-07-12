@@ -9,7 +9,7 @@ cryptocurrencies then saves it in a MySQL database.
 1. Git clone the project
 2. Get your coinmarketcap Api Key
 3. To run:
-    * **This app runs on Python 2.7 ans up**
+    * **This app runs on Python 2.7 and up**
     * python tracker.py
 
 ### Usage
